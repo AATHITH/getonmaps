@@ -9,8 +9,150 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    /* Only dark theme variables */
+    :root {
+      --primary: #60a5fa;
+      --primary-dark: #2563eb;
+      --bg: #181a20;
+      --card-bg: #23262f;
+      --text: #f3f4f6;
+      --muted: #a1a1aa;
+      --border: #2a2d34;
+      --shadow: 0 2px 16px rgba(44,137,232,0.18);
+      --shadow-hover: 0 4px 32px rgba(44,137,232,0.28);
+      --section-bg: #1f2937;
+      --link-color: #60a5fa;
+      --heading-color: #f3f4f6;
+      --footer-bg: #23262f;
+      --nav-bg: #23262f;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      transition: background 0.2s, color 0.2s;
+    }
+    /* Testimonial Carousel Styles */
+    .testimonial-carousel-container {
+      width: 100%;
+      overflow: hidden;
+      margin: 0 auto 3rem auto;
+      position: relative;
+      max-width: 1100px;
+    }
+    .testimonial-carousel {
+      display: flex;
+      gap: 2rem;
+      transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+    .testimonial-card {
+      background: var(--card-bg);
+      color: var(--text);
+      border-radius: 1.2rem;
+      box-shadow: var(--shadow);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      min-width: 340px;
+      max-width: 340px;
+      flex: 0 0 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    .testimonial-card .testimonial-quote {
+      font-size: 1.08rem;
+      font-style: italic;
+      margin-bottom: 1.2rem;
+      color: var(--muted);
+    }
+    .testimonial-card .testimonial-user {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: auto;
+    }
+    .testimonial-card .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      background: #222;
+    }
+    .testimonial-card .testimonial-name {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.08rem;
+    }
+    .testimonial-card .testimonial-role {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .testimonial-carousel-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .testimonial-carousel-btn {
+      pointer-events: all;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: var(--shadow);
+    }
+    .testimonial-carousel-btn:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    @media (max-width: 900px) {
+      .testimonial-card, .testimonial-carousel {
+        min-width: 90vw;
+        max-width: 90vw;
+      }
+    }
+    @media (max-width: 600px) {
+      .testimonial-card, .testimonial-carousel {
+        min-width: 98vw;
+        max-width: 98vw;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
+  <nav class="main-header">
+    <div class="container header-flex">
+      <a href="#" class="brand"><i class="fas fa-map-marked-alt"></i> Get On Maps</a>
+      <div class="nav-links">
+        <a href="pricing.html">Pricing</a>
+        <a href="services.html">Services</a>
+        <a href="#process">How It Works</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#resources">Blog</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="https://www.instagram.com/getonmaps" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </nav>
 
   <!-- Hero Section -->
   <header class="hero" id="hero">
@@ -19,7 +161,7 @@
         <h1>Boost Your Local Visibility</h1>
         <h2 class="subtitle">Get discovered by more customers in your area</h2>
         <p>Claim your spot on Google Maps, JustDial, Sulekha & more. Attract more customers with a professional profile and virtual tours.</p>
-        <a href="#contact" class="btn cta-btn">Get Started</a>
+        <a href="#contact" class="btn cta-btn">Contact Us</a>
       </div>
       <div class="hero-banner">
         <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Business Banner" class="banner-img" />
@@ -28,60 +170,18 @@
   </header>
 
   <!-- Pricing Section -->
-  <section id="pricing" class="pricing section">
-    <div class="container">
-      <h2>Our Packages</h2>
-      <div class="pricing-cards">
-        <div class="card">
-          <h3><i class="fas fa-map-marker-alt"></i> Starter</h3>
-          <ul>
-            <li>GMB setup & Maps profile fix</li>
-            <li>Business info verification</li>
-            <li>Basic photo uploads</li>
-            <li>Email support</li>
-          </ul>
-          <p class="price">₹2,999</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-list"></i> Standard</h3>
-          <ul>
-            <li>Everything in Starter</li>
-            <li>JustDial/Sulekha listings</li>
-            <li>Profile optimization tips</li>
-            <li>Priority email support</li>
-          </ul>
-          <p class="price">₹4,999</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-vr-cardboard"></i> Premium</h3>
-          <ul>
-            <li>Everything in Standard</li>
-            <li>360° Virtual Tour (up to 10 spots)</li>
-            <li>Custom cover photo</li>
-            <li>Phone & chat support</li>
-          </ul>
-          <p class="price">₹7,999</p>
-        </div>
-      </div>
-      <p class="note">*All packages include a free initial consultation.</p>
-    </div>
-  </section>
-
-  <!-- Contact Callout (after pricing) -->
-  <section id="contact-callout" class="contact-callout">
-    <div class="container">
-      <div class="contact-callout-content">
-        <div>
-          <h3>Ready to Get Started?</h3>
-          <p>
-            <strong>Email:</strong> <a href="mailto:info@getonmaps.com">info@getonmaps.com</a><br>
-            <strong>Phone:</strong> <a href="tel:+919876543210">+91-98765-43210</a>
-          </p>
-        </div>
-        <div>
-          <a href="#contact" class="btn">Contact Us Now</a>
-        </div>
-      </div>
+  <section id="pricing" class="pricing-cta-section">
+    <h2>Ready to Get More Business?</h2>
+    <p>
+      We are loved by 100+ local businesses, stores, early-stage startups, marketing agencies, real estate agents, freelancers, and many more. Get started now 👇
+    </p>
+    <ul>
+      <li>No coding skill required.</li>
+      <li>Start in under 2 minutes.</li>
+    </ul>
+    <div class="pricing-cta-buttons">
+      <a href="#contact" class="cta-secondary">Talk to us</a>
+      <a href="pricing.html" class="cta-outline">See our pricing</a>
     </div>
   </section>
 
@@ -90,27 +190,36 @@
     <div class="container">
       <h2>Our Services</h2>
       <div class="service-cards">
-        <div class="card">
-          <i class="fas fa-search-location fa-2x service-icon"></i>
+        <div class="card service-card">
+          <div class="service-icon-wrap">
+            <i class="fas fa-search-location fa-2x service-icon"></i>
+          </div>
           <h3>GMB Optimization</h3>
           <p>Ensure your business appears correctly and prominently on Google Maps. We optimize your profile for keywords, categories, and local relevance.</p>
         </div>
-        <div class="card">
-          <i class="fas fa-tools fa-2x service-icon"></i>
+        <div class="card service-card">
+          <div class="service-icon-wrap">
+            <i class="fas fa-tools fa-2x service-icon"></i>
+          </div>
           <h3>Google Maps Profile Fix</h3>
           <p>Update incorrect addresses, photos, and business hours to avoid losing customers. We handle duplicate listings and resolve suspensions.</p>
         </div>
-        <div class="card">
-          <i class="fas fa-address-book fa-2x service-icon"></i>
+        <div class="card service-card">
+          <div class="service-icon-wrap">
+            <i class="fas fa-address-book fa-2x service-icon"></i>
+          </div>
           <h3>Local Listings</h3>
           <p>Get listed on JustDial, Sulekha, and other local directories for more visibility. We ensure consistency across platforms.</p>
         </div>
-        <div class="card">
-          <i class="fas fa-camera-retro fa-2x service-icon"></i>
+        <div class="card service-card">
+          <div class="service-icon-wrap">
+            <i class="fas fa-camera-retro fa-2x service-icon"></i>
+          </div>
           <h3>360° Virtual Tours</h3>
           <p>Showcase your space with immersive photography that attracts more walk-ins. Google Street View integration available.</p>
         </div>
       </div>
+      <a href="services.html" class="btn blog-btn" style="margin-top:2rem;">Show All Services</a>
     </div>
   </section>
 
@@ -147,13 +256,13 @@
   <section id="benefits" class="benefits section">
     <div class="container">
       <h2>Why Choose Us?</h2>
-      <ul>
-        <li><i class="fas fa-arrow-up"></i> Increased search visibility</li>
-        <li><i class="fas fa-check-circle"></i> Accurate business info everywhere</li>
-        <li><i class="fas fa-users"></i> Attract more local customers</li>
-        <li><i class="fas fa-cogs"></i> Hassle-free setup & maintenance</li>
-        <li><i class="fas fa-headset"></i> Dedicated support team</li>
-        <li><i class="fas fa-chart-line"></i> Monthly performance reports (Premium)</li>
+      <ul class="benefits-list">
+        <li><span class="benefit-icon"><i class="fas fa-arrow-up"></i></span> Increased search visibility</li>
+        <li><span class="benefit-icon"><i class="fas fa-check-circle"></i></span> Accurate business info everywhere</li>
+        <li><span class="benefit-icon"><i class="fas fa-users"></i></span> Attract more local customers</li>
+        <li><span class="benefit-icon"><i class="fas fa-cogs"></i></span> Hassle-free setup & maintenance</li>
+        <li><span class="benefit-icon"><i class="fas fa-headset"></i></span> Dedicated support team</li>
+        <li><span class="benefit-icon"><i class="fas fa-chart-line"></i></span> Monthly performance reports (Premium)</li>
       </ul>
     </div>
   </section>
@@ -163,20 +272,21 @@
     <div class="container">
       <h2>Resources & Blog</h2>
       <div class="blog-cards">
+        <!-- Each blog-card contains its image and content, image at top, content below -->
         <div class="blog-card">
-          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Why Google Maps Matters" />
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Why Google Maps Matters" style="width:100%;height:160px;object-fit:cover;border-radius:16px 16px 0 0;">
           <h3>Why Your Business Needs Google Maps</h3>
           <p>Discover how a Google Maps listing can drive real customers to your doorstep and boost your local reputation.</p>
           <a href="blogs/why-google-maps.html" class="blog-link">Read More</a>
         </div>
         <div class="blog-card">
-          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Local Listings" />
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Local Listings" style="width:100%;height:160px;object-fit:cover;border-radius:16px 16px 0 0;">
           <h3>Local Listings: The Secret to Local SEO</h3>
           <p>Learn why being on JustDial, Sulekha, and other directories is crucial for local search and how it impacts your business growth.</p>
           <a href="blogs/local-listings.html" class="blog-link">Read More</a>
         </div>
         <div class="blog-card">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="360 Virtual Tours" />
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="360 Virtual Tours" style="width:100%;height:160px;object-fit:cover;border-radius:16px 16px 0 0;">
           <h3>360° Virtual Tours: Engage & Convert</h3>
           <p>See how immersive virtual tours can set you apart from competitors and increase customer engagement.</p>
           <a href="blogs/virtual-tours.html" class="blog-link">Read More</a>
@@ -190,19 +300,110 @@
   <section id="testimonials" class="testimonials section">
     <div class="container">
       <h2>What Our Clients Say</h2>
-      <blockquote>
-        <p>“My GMB ranking improved dramatically and I saw more walk-ins within 2 weeks!”</p>
-        <footer>- Ramesh, Cafe Owner</footer>
-      </blockquote>
-      <blockquote>
-        <p>“Customers love our virtual tour—it has doubled our enquiries.”</p>
-        <footer>- Priya, Salon Manager</footer>
-      </blockquote>
-      <blockquote>
-        <p>“The team handled everything, from fixing our address to getting us on Sulekha. Highly recommended!”</p>
-        <footer>- Anil, Retail Store</footer>
-      </blockquote>
+      <div class="testimonial-carousel-container">
+        <div class="testimonial-carousel" id="testimonial-carousel">
+          <!-- Each testimonial-card has avatar and text inside the card, not outside -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">“My GMB ranking improved dramatically and I saw more walk-ins within 2 weeks!”</div>
+            <div class="testimonial-user">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" class="testimonial-avatar" alt="Ramesh">
+              <div>
+                <div class="testimonial-name">Ramesh</div>
+                <div class="testimonial-role">Cafe Owner</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">“Customers love our virtual tour—it has doubled our enquiries.”</div>
+            <div class="testimonial-user">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" class="testimonial-avatar" alt="Priya">
+              <div>
+                <div class="testimonial-name">Priya</div>
+                <div class="testimonial-role">Salon Manager</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">“The team handled everything, from fixing our address to getting us on Sulekha. Highly recommended!”</div>
+            <div class="testimonial-user">
+              <img src="https://randomuser.me/api/portraits/men/45.jpg" class="testimonial-avatar" alt="Anil">
+              <div>
+                <div class="testimonial-name">Anil</div>
+                <div class="testimonial-role">Retail Store</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">“Our JustDial listing started showing up on top. The monthly reports are super helpful.”</div>
+            <div class="testimonial-user">
+              <img src="https://randomuser.me/api/portraits/men/36.jpg" class="testimonial-avatar" alt="Suresh">
+              <div>
+                <div class="testimonial-name">Suresh</div>
+                <div class="testimonial-role">Electronics Shop</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">“Very professional and quick service. Our Apple Maps profile was live in 2 days.”</div>
+            <div class="testimonial-user">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonial-avatar" alt="Meena">
+              <div>
+                <div class="testimonial-name">Meena</div>
+                <div class="testimonial-role">Boutique Owner</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">“We got more calls after the WhatsApp setup and GMB optimization. Highly recommend Get On Maps!”</div>
+            <div class="testimonial-user">
+              <img src="https://randomuser.me/api/portraits/men/21.jpg" class="testimonial-avatar" alt="Vikram">
+              <div>
+                <div class="testimonial-name">Vikram</div>
+                <div class="testimonial-role">Freelancer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-carousel-controls">
+          <button class="testimonial-carousel-btn" id="testimonial-prev" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+          <button class="testimonial-carousel-btn" id="testimonial-next" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
     </div>
+    <script>
+      // News ticker style continuous carousel
+      (function() {
+        const carousel = document.getElementById('testimonial-carousel');
+        // Duplicate cards for seamless loop
+        if (carousel.children.length && carousel.children.length < 20) {
+          carousel.innerHTML += carousel.innerHTML;
+        }
+        // Pause on hover
+        carousel.parentElement.addEventListener('mouseenter', () => {
+          carousel.classList.add('paused');
+        });
+        carousel.parentElement.addEventListener('mouseleave', () => {
+          carousel.classList.remove('paused');
+        });
+        // Manual controls (jump by 1 card)
+        const prevBtn = document.getElementById('testimonial-prev');
+        const nextBtn = document.getElementById('testimonial-next');
+        let offset = 0;
+        function getCardWidth() {
+          return carousel.children[0].offsetWidth + 32;
+        }
+        prevBtn.addEventListener('click', () => {
+          offset = Math.max(offset - getCardWidth(), 0);
+          carousel.style.transition = 'transform 0.1s';
+          carousel.style.transform = `translateX(-${offset}px)`;
+        });
+        nextBtn.addEventListener('click', () => {
+          offset += getCardWidth();
+          carousel.style.transition = 'transform 0.1s';
+          carousel.style.transform = `translateX(-${offset}px)`;
+        });
+      })();
+    </script>
   </section>
 
   <!-- About -->
@@ -248,7 +449,8 @@
       <h2>Contact Us</h2>
       <p>Email: <a href="mailto:info@getonmaps.com">info@getonmaps.com</a></p>
       <p>Phone: +91-98765-43210</p>
-      <a href="#contact" class="btn">Get Started Today</a>
+      <p>Instagram: <a href="https://www.instagram.com/getonmaps" target="_blank">@getonmaps</a></p>
+      <a href="#contact" class="btn">Contact Us</a>
     </div>
   </section>
 
@@ -260,9 +462,9 @@
         <p>Helping local businesses grow with digital maps & listings.</p>
       </div>
       <nav class="footer-nav">
-        <a href="#hero">Home</a>
+        <a href="#">Home</a>
         <a href="#pricing">Pricing</a>
-        <a href="#services">Services</a>
+        <a href="services.html">Services</a>
         <a href="#resources">Blog</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -270,6 +472,7 @@
       <div class="footer-contact">
         <p><i class="fas fa-envelope"></i> <a href="mailto:info@getonmaps.com">info@getonmaps.com</a></p>
         <p><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91-98765-43210</a></p>
+        <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/getonmaps" target="_blank">Instagram</a></p>
       </div>
     </div>
     <div class="footer-bottom">
