@@ -1,0 +1,31 @@
+:root {
+  /* Colors */
+  --primary: #60a5fa;
+  --primary-dark: #2563eb;
+  --bg: #181a20;
+  --card-bg: #23262f;
+  --text: #f3f4f6;
+  --text-muted: #a1a1aa;
+  --border: #2a2d34;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(44,137,232,0.13);
+  --shadow: 0 2px 16px rgba(44,137,232,0.18);
+  --shadow-lg: 0 4px 32px rgba(44,137,232,0.28);
+  
+  /* Layout */
+  --container-width: 1100px;
+  --container-padding: 1rem;
+  --grid-gap: 2rem;
+  --border-radius: 1.2rem;
+  --border-radius-sm: 0.7rem;
+  
+  /* Typography */
+  --font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  --font-size-sm: 0.98rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.2rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.7rem;
+}

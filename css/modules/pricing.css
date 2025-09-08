@@ -1,0 +1,234 @@
+/* Pricing cards styles */
+@import url('../modules/variables.css');
+
+.pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--grid-gap);
+  margin: 3rem 0;
+  padding: 0;
+  width: 100%;
+  max-width: var(--container-width);
+  box-sizing: border-box;
+}
+
+.pricing-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2.2rem 1.5rem 2rem 1.5rem;
+  flex: 1 1 240px;
+  min-width: 240px;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, background 0.2s, border 0.2s;
+  margin: 0;
+}
+
+.pricing-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.pricing-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: var(--primary);
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.pricing-price {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pricing-price .old-price {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+}
+
+.pricing-desc {
+  font-size: var(--font-size-sm);
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-weight: 500;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  font-size: var(--font-size-sm);
+  color: var(--text);
+  text-align: left;
+  width: 100%;
+}
+
+.pricing-features li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.pricing-features li i {
+  color: var(--primary);
+  margin-top: 2px;
+  min-width: 18px;
+}
+
+.pricing-card .btn {
+  margin-top: auto;
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 0.7rem 0;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s;
+  box-shadow: none;
+}
+
+.pricing-card .btn:hover {
+  background: var(--primary-dark);
+}
+
+/* Pricing CTA Section */
+.pricing-cta-section {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  margin: 3rem auto;
+  max-width: 700px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pricing-cta-section h2 {
+  font-size: 2.1rem;
+  color: var(--primary);
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.pricing-cta-section p {
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+  font-size: 1.13rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.pricing-cta-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 1.5rem auto;
+  max-width: 400px;
+  font-size: var(--font-size-base);
+  color: var(--text-muted);
+}
+
+.pricing-cta-section ul li {
+  margin-bottom: 0.3rem;
+}
+
+.pricing-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.pricing-cta-buttons a {
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  border: 2px solid transparent;
+  box-shadow: none;
+  display: inline-block;
+}
+
+.pricing-cta-buttons a.cta-main {
+  background: var(--primary);
+  color: white;
+}
+
+.pricing-cta-buttons a.cta-main:hover {
+  background: var(--primary-dark);
+}
+
+.pricing-cta-buttons a.cta-secondary {
+  background: var(--card-bg);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.pricing-cta-buttons a.cta-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.pricing-cta-buttons a.cta-outline {
+  background: var(--bg);
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+.pricing-cta-buttons a.cta-outline:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Media Queries */
+@media (max-width: 700px) {
+  .pricing-cta-section {
+    padding: 2rem 0.5rem;
+  }
+  
+  .pricing-cta-buttons {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .pricing-cards {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .pricing-card {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+}

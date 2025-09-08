@@ -6,153 +6,12 @@
   <meta name="description" content="Get On Maps - Claim your business listing, boost local visibility, and attract more customers through Google Maps, JustDial, Sulekha, and 360° virtual tours." />
   <meta name="keywords" content="Google My Business, GMB, Maps Listing, Local SEO, JustDial, Sulekha, Virtual Tour, 360 Photos, Business Profile" />
   <title>Get On Maps</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-  <style>
-    /* Only dark theme variables */
-    :root {
-      --primary: #60a5fa;
-      --primary-dark: #2563eb;
-      --bg: #181a20;
-      --card-bg: #23262f;
-      --text: #f3f4f6;
-      --muted: #a1a1aa;
-      --border: #2a2d34;
-      --shadow: 0 2px 16px rgba(44,137,232,0.18);
-      --shadow-hover: 0 4px 32px rgba(44,137,232,0.28);
-      --section-bg: #1f2937;
-      --link-color: #60a5fa;
-      --heading-color: #f3f4f6;
-      --footer-bg: #23262f;
-      --nav-bg: #23262f;
-    }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-      transition: background 0.2s, color 0.2s;
-    }
-    /* Testimonial Carousel Styles */
-    .testimonial-carousel-container {
-      width: 100%;
-      overflow: hidden;
-      margin: 0 auto 3rem auto;
-      position: relative;
-      max-width: 1100px;
-    }
-    .testimonial-carousel {
-      display: flex;
-      gap: 2rem;
-      transition: transform 0.6s cubic-bezier(.4,0,.2,1);
-      will-change: transform;
-    }
-    .testimonial-card {
-      background: var(--card-bg);
-      color: var(--text);
-      border-radius: 1.2rem;
-      box-shadow: var(--shadow);
-      padding: 2rem 1.5rem 1.5rem 1.5rem;
-      min-width: 340px;
-      max-width: 340px;
-      flex: 0 0 340px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      position: relative;
-      margin-bottom: 1rem;
-    }
-    .testimonial-card .testimonial-quote {
-      font-size: 1.08rem;
-      font-style: italic;
-      margin-bottom: 1.2rem;
-      color: var(--muted);
-    }
-    .testimonial-card .testimonial-user {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin-top: auto;
-    }
-    .testimonial-card .testimonial-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--primary);
-      background: #222;
-    }
-    .testimonial-card .testimonial-name {
-      font-weight: 700;
-      color: var(--primary);
-      font-size: 1.08rem;
-    }
-    .testimonial-card .testimonial-role {
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-    .testimonial-carousel-controls {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: space-between;
-      pointer-events: none;
-      z-index: 2;
-    }
-    .testimonial-carousel-btn {
-      pointer-events: all;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--primary);
-      border-radius: 50%;
-      width: 38px;
-      height: 38px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      box-shadow: var(--shadow);
-    }
-    .testimonial-carousel-btn:hover {
-      background: var(--primary);
-      color: #fff;
-    }
-    @media (max-width: 900px) {
-      .testimonial-card, .testimonial-carousel {
-        min-width: 90vw;
-        max-width: 90vw;
-      }
-    }
-    @media (max-width: 600px) {
-      .testimonial-card, .testimonial-carousel {
-        min-width: 98vw;
-        max-width: 98vw;
-      }
-    }
-  </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="main-header">
-    <div class="container header-flex">
-      <a href="#" class="brand"><i class="fas fa-map-marked-alt"></i> Get On Maps</a>
-      <div class="nav-links">
-        <a href="pricing.html">Pricing</a>
-        <a href="services.html">Services</a>
-        <a href="#process">How It Works</a>
-        <a href="#benefits">Benefits</a>
-        <a href="#resources">Blog</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a href="https://www.instagram.com/getonmaps" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    </div>
-  </nav>
+  <div id="header"></div>
 
   <!-- Hero Section -->
   <header class="hero" id="hero">
@@ -161,7 +20,7 @@
         <h1>Boost Your Local Visibility</h1>
         <h2 class="subtitle">Get discovered by more customers in your area</h2>
         <p>Claim your spot on Google Maps, JustDial, Sulekha & more. Attract more customers with a professional profile and virtual tours.</p>
-        <a href="#contact" class="btn cta-btn">Contact Us</a>
+        <a href="contact.html" class="btn cta-btn">Contact Us</a>
       </div>
       <div class="hero-banner">
         <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Business Banner" class="banner-img" />
@@ -180,7 +39,7 @@
       <li>Start in under 2 minutes.</li>
     </ul>
     <div class="pricing-cta-buttons">
-      <a href="#contact" class="cta-secondary">Talk to us</a>
+      <a href="contact.html" class="cta-secondary">Talk to us</a>
       <a href="pricing.html" class="cta-outline">See our pricing</a>
     </div>
   </section>
@@ -189,7 +48,7 @@
   <section id="services" class="services section">
     <div class="container">
       <h2>Our Services</h2>
-      <div class="service-cards">
+      <div class="service-cards grid-4">
         <div class="card service-card">
           <div class="service-icon-wrap">
             <i class="fas fa-search-location fa-2x service-icon"></i>
@@ -370,40 +229,8 @@
         </div>
       </div>
     </div>
-    <script>
-      // News ticker style continuous carousel
-      (function() {
-        const carousel = document.getElementById('testimonial-carousel');
-        // Duplicate cards for seamless loop
-        if (carousel.children.length && carousel.children.length < 20) {
-          carousel.innerHTML += carousel.innerHTML;
-        }
-        // Pause on hover
-        carousel.parentElement.addEventListener('mouseenter', () => {
-          carousel.classList.add('paused');
-        });
-        carousel.parentElement.addEventListener('mouseleave', () => {
-          carousel.classList.remove('paused');
-        });
-        // Manual controls (jump by 1 card)
-        const prevBtn = document.getElementById('testimonial-prev');
-        const nextBtn = document.getElementById('testimonial-next');
-        let offset = 0;
-        function getCardWidth() {
-          return carousel.children[0].offsetWidth + 32;
-        }
-        prevBtn.addEventListener('click', () => {
-          offset = Math.max(offset - getCardWidth(), 0);
-          carousel.style.transition = 'transform 0.1s';
-          carousel.style.transform = `translateX(-${offset}px)`;
-        });
-        nextBtn.addEventListener('click', () => {
-          offset += getCardWidth();
-          carousel.style.transition = 'transform 0.1s';
-          carousel.style.transform = `translateX(-${offset}px)`;
-        });
-      })();
-    </script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/modules/components.js"></script>
   </section>
 
   <!-- About -->
@@ -443,41 +270,18 @@
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact section">
+  <!-- Contact CTA -->
+  <section id="contact-cta" class="cta-section section">
     <div class="container">
-      <h2>Contact Us</h2>
-      <p>Email: <a href="mailto:info@getonmaps.com">info@getonmaps.com</a></p>
-      <p>Phone: +91-98765-43210</p>
-      <p>Instagram: <a href="https://www.instagram.com/getonmaps" target="_blank">@getonmaps</a></p>
-      <a href="#contact" class="btn">Contact Us</a>
+      <h2>Ready to Get Started?</h2>
+      <p>Let us help you boost your local presence and attract more customers.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn cta-btn">Contact Us</a>
+        <a href="pricing.html" class="btn cta-outline">View Pricing</a>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="main-footer">
-    <div class="container footer-flex">
-      <div class="footer-brand">
-        <span class="footer-logo"><i class="fas fa-map-marked-alt"></i> Get On Maps</span>
-        <p>Helping local businesses grow with digital maps & listings.</p>
-      </div>
-      <nav class="footer-nav">
-        <a href="#">Home</a>
-        <a href="#pricing">Pricing</a>
-        <a href="services.html">Services</a>
-        <a href="#resources">Blog</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="footer-contact">
-        <p><i class="fas fa-envelope"></i> <a href="mailto:info@getonmaps.com">info@getonmaps.com</a></p>
-        <p><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91-98765-43210</a></p>
-        <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/getonmaps" target="_blank">Instagram</a></p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Get On Maps. All rights reserved.</p>
-    </div>
-  </footer>
+  <div id="footer"></div>
 </body>
 </html>

@@ -1,0 +1,103 @@
+/* Layout specific styles */
+@import url('modules/variables.css');
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: var(--grid-gap);
+  width: 100%;
+}
+
+.pricing-cards,
+.service-cards,
+.steps,
+.blog-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: var(--grid-gap);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(120deg, var(--card-bg) 60%, var(--bg) 100%);
+  padding: 0;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  min-height: 420px;
+}
+
+.hero-text {
+  flex: 1.2;
+  padding: 2.5rem 0;
+}
+
+.hero-banner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+/* Services Section */
+.services-section {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem;
+  margin-bottom: 2.5rem;
+  border-left: 6px solid var(--primary);
+}
+
+/* Contact Section */
+.contact-info-section {
+  margin: 3rem auto 2rem auto;
+  max-width: var(--container-width);
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-text {
+    padding: 2rem 0;
+  }
+  
+  .banner-img {
+    max-width: 80%;
+  }
+  
+  .grid,
+  .pricing-cards,
+  .service-cards,
+  .steps,
+  .blog-cards {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}

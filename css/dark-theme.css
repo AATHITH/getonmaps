@@ -1,0 +1,29 @@
+/* Dark theme variables */
+[data-theme="dark"] {
+  /* Colors */
+  --bg: #181a20;
+  --card-bg: #23262f;
+  --text: #f3f4f6;
+  --text-muted: #a1a1aa;
+  --border: #2a2d34;
+  
+  /* Shadows with blue tint */
+  --shadow-sm: 0 2px 8px rgba(44,137,232,0.13);
+  --shadow: 0 2px 16px rgba(44,137,232,0.18);
+  --shadow-lg: 0 4px 32px rgba(44,137,232,0.28);
+}
+
+/* Light theme variables */
+[data-theme="light"] {
+  /* Colors */
+  --bg: #ffffff;
+  --card-bg: #f8f9fa;
+  --text: #1f2937;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  
+  /* Shadows with gray tint */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+  --shadow: 0 2px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 4px 32px rgba(0,0,0,0.12);
+}

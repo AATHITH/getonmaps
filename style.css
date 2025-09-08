@@ -1,10 +1,5 @@
-body {
-  margin: 0;
-  font-family: 'Montserrat', Arial, sans-serif;
-  line-height: 1.7;
-  color: #f3f4f6;
-  background: #181a20;
-}
+/* Import the new modular CSS structure */
+@import url('css/main.css');
 
 .section {
   padding: 4rem 0 3rem 0;
@@ -105,7 +100,7 @@ h3 {
   object-fit: cover;
 }
 
-.pricing-cards, .service-cards, .steps, .blog-cards {
+.pricing-cards, .steps, .blog-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 2rem;
@@ -541,16 +536,7 @@ details[open] {
 
 /* --- ICON FIXES FOR ALL CARDS AND LISTS --- */
 
-/* Service Cards: vertical icon alignment and fix icon hover bug */
-.service-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  min-height: 340px;
-  padding-top: 2.2rem;
-  position: relative;
-}
+
 .service-icon-wrap {
   display: flex;
   align-items: center;
@@ -880,7 +866,7 @@ details[open] {
 #testimonials,
 #about,
 #faq,
-#contact {
+contact.html {
   width: 100%;
   max-width: 1100px;
   margin-left: auto;
@@ -903,14 +889,6 @@ details[open] {
   box-sizing: border-box;
 }
 
-/* Service cards grid fix */
-.service-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  width: 100%;
-  box-sizing: border-box;
-}
 
 /* Steps grid fix */
 .steps {
@@ -966,8 +944,22 @@ details[open] {
     min-width: 0;
     width: 100%;
   }
-  .service-cards, .blog-cards, .steps, .benefits-list {
+  .blog-cards, .steps, .benefits-list {
     grid-template-columns: 1fr;
     gap: 1.2rem;
   }
+}
+
+/* Service cards grid fix */
+.service-cards {
+  display: flex;               /* use flexbox instead of grid */
+  flex-wrap: nowrap;           /* no wrapping */
+  gap: 2rem;                   /* space between cards */
+  overflow-x: auto;            /* scroll on small screens */
+  padding-bottom: 1rem;        /* avoid scrollbar overlap */
+}
+/* Service Cards: vertical icon alignment and fix icon hover bug */
+.service-card {
+  flex: 0 0 280px;              /* fixed width per card */
+  min-height: 340px;
 }

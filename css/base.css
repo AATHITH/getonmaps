@@ -1,0 +1,111 @@
+/* Base styles for the website */
+@import url('modules/variables.css');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  transition: background-color 0.3s ease;
+}
+
+/* Container & Grid System */
+.container {
+  width: 92%;
+  max-width: var(--container-width);
+  margin: auto;
+  padding: 0 var(--container-padding);
+  background: transparent;
+  color: inherit;
+    flex-wrap: nowrap; /* Prevents wrapping to next line */
+    gap: 20px; /* Space between cards */
+    overflow-x: auto; 
+}
+
+.grid {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/* Common grid layouts */
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1200px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+.section {
+  padding: 4rem 0 3rem 0;
+}
+
+/* Typography */
+h1, h2, h3 {
+  color: var(--primary);
+  text-align: left;
+  font-family: var(--font-family);
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+h1 { font-size: var(--font-size-3xl); margin-bottom: 0.5rem; }
+h2 { font-size: var(--font-size-2xl); margin-bottom: 1.5rem; }
+h3 { font-size: var(--font-size-lg); margin-bottom: 0.7rem; }
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--primary);
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+/* Links & Buttons */
+.btn, .blog-link {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--primary-dark) 60%, var(--primary) 100%);
+  color: white;
+  padding: 0.85rem 2.2rem;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  box-shadow: var(--shadow-sm);
+  transition: background 0.2s, box-shadow 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover, .blog-link:hover {
+  background: linear-gradient(90deg, var(--primary) 60%, var(--primary-dark) 100%);
+  box-shadow: var(--shadow);
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 98vw;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: calc(var(--font-size-3xl) * 0.8); }
+  h2 { font-size: calc(var(--font-size-2xl) * 0.8); }
+  h3 { font-size: calc(var(--font-size-lg) * 0.9); }
+}
