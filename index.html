@@ -1,287 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Get On Maps - Claim your business listing, boost local visibility, and attract more customers through Google Maps, JustDial, Sulekha, and 360° virtual tours." />
-  <meta name="keywords" content="Google My Business, GMB, Maps Listing, Local SEO, JustDial, Sulekha, Virtual Tour, 360 Photos, Business Profile" />
-  <title>Get On Maps</title>
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get On Maps - Claim your business listing, boost local visibility, and attract more customers through Google Maps, JustDial, Sulekha, and 360° virtual tours.">
+  <meta name="keywords" content="Google My Business, GMB, Maps Listing, Local SEO, JustDial, Sulekha, Virtual Tour, 360 Photos, Business Profile">
+  <title>Get On Maps - Boost Your Local Business Visibility</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div id="header"></div>
-
-  <!-- Hero Section -->
-  <header class="hero" id="hero">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Boost Your Local Visibility</h1>
-        <h2 class="subtitle">Get discovered by more customers in your area</h2>
-        <p>Claim your spot on Google Maps, JustDial, Sulekha & more. Attract more customers with a professional profile and virtual tours.</p>
-        <a href="contact.html" class="btn cta-btn">Contact Us</a>
-      </div>
-      <div class="hero-banner">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Business Banner" class="banner-img" />
-      </div>
-    </div>
-  </header>
-
-  <!-- Pricing Section -->
-  <section id="pricing" class="pricing-cta-section">
-    <h2>Ready to Get More Business?</h2>
-    <p>
-      We are loved by 100+ local businesses, stores, early-stage startups, marketing agencies, real estate agents, freelancers, and many more. Get started now 👇
-    </p>
-    <ul>
-      <li>No coding skill required.</li>
-      <li>Start in under 2 minutes.</li>
-    </ul>
-    <div class="pricing-cta-buttons">
-      <a href="contact.html" class="cta-secondary">Talk to us</a>
-      <a href="pricing.html" class="cta-outline">See our pricing</a>
-    </div>
-  </section>
-
-  <!-- Services Overview -->
-  <section id="services" class="services section">
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <h2>Our Services</h2>
-      <div class="service-cards grid-4">
-        <div class="card service-card">
-          <div class="service-icon-wrap">
-            <i class="fas fa-search-location fa-2x service-icon"></i>
-          </div>
-          <h3>GMB Optimization</h3>
-          <p>Ensure your business appears correctly and prominently on Google Maps. We optimize your profile for keywords, categories, and local relevance.</p>
-        </div>
-        <div class="card service-card">
-          <div class="service-icon-wrap">
-            <i class="fas fa-tools fa-2x service-icon"></i>
-          </div>
-          <h3>Google Maps Profile Fix</h3>
-          <p>Update incorrect addresses, photos, and business hours to avoid losing customers. We handle duplicate listings and resolve suspensions.</p>
-        </div>
-        <div class="card service-card">
-          <div class="service-icon-wrap">
-            <i class="fas fa-address-book fa-2x service-icon"></i>
-          </div>
-          <h3>Local Listings</h3>
-          <p>Get listed on JustDial, Sulekha, and other local directories for more visibility. We ensure consistency across platforms.</p>
-        </div>
-        <div class="card service-card">
-          <div class="service-icon-wrap">
-            <i class="fas fa-camera-retro fa-2x service-icon"></i>
-          </div>
-          <h3>360° Virtual Tours</h3>
-          <p>Showcase your space with immersive photography that attracts more walk-ins. Google Street View integration available.</p>
-        </div>
-      </div>
-      <a href="services.html" class="btn blog-btn" style="margin-top:2rem;">Show All Services</a>
-    </div>
-  </section>
-
-  <!-- How It Works -->
-  <section id="process" class="process section">
-    <div class="container">
-      <h2>How It Works</h2>
-      <div class="steps">
-        <div class="step">
-          <span>1</span>
-          <h3>Audit & Consultation</h3>
-          <p>We analyze your current online presence, check for inconsistencies, and suggest improvements tailored to your business goals.</p>
-        </div>
-        <div class="step">
-          <span>2</span>
-          <h3>Profile Setup & Fix</h3>
-          <p>We set up or correct your Google Maps & local listings, ensuring all details are accurate and verified.</p>
-        </div>
-        <div class="step">
-          <span>3</span>
-          <h3>Listing Deployment</h3>
-          <p>Your business gets listed on relevant directories for maximum reach. We monitor for successful publication.</p>
-        </div>
-        <div class="step">
-          <span>4</span>
-          <h3>360° Capture</h3>
-          <p>Optional: Add virtual tours to enhance engagement. Our photographers visit your location and upload the tour to your profile.</p>
+      <a class="navbar-brand" href="#hero">
+        <i class="fas fa-map-marked-alt"></i> Get On Maps
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#pricing">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#resources">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="ms-lg-3 d-flex align-items-center gap-2">
+          <button class="theme-toggle" aria-label="Toggle dark/light theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="https://www.instagram.com/getonmaps" target="_blank" class="btn btn-sm btn-outline-primary" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Benefits -->
-  <section id="benefits" class="benefits section">
-    <div class="container">
-      <h2>Why Choose Us?</h2>
-      <ul class="benefits-list">
-        <li><span class="benefit-icon"><i class="fas fa-arrow-up"></i></span> Increased search visibility</li>
-        <li><span class="benefit-icon"><i class="fas fa-check-circle"></i></span> Accurate business info everywhere</li>
-        <li><span class="benefit-icon"><i class="fas fa-users"></i></span> Attract more local customers</li>
-        <li><span class="benefit-icon"><i class="fas fa-cogs"></i></span> Hassle-free setup & maintenance</li>
-        <li><span class="benefit-icon"><i class="fas fa-headset"></i></span> Dedicated support team</li>
-        <li><span class="benefit-icon"><i class="fas fa-chart-line"></i></span> Monthly performance reports (Premium)</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Resources / Blog Section -->
-  <section id="resources" class="resources section">
-    <div class="container">
-      <h2>Resources & Blog</h2>
-      <div class="blog-cards">
-        <!-- Each blog-card contains its image and content, image at top, content below -->
-        <div class="blog-card">
-          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Why Google Maps Matters" style="width:100%;height:160px;object-fit:cover;border-radius:16px 16px 0 0;">
-          <h3>Why Your Business Needs Google Maps</h3>
-          <p>Discover how a Google Maps listing can drive real customers to your doorstep and boost your local reputation.</p>
-          <a href="blogs/why-google-maps.html" class="blog-link">Read More</a>
-        </div>
-        <div class="blog-card">
-          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Local Listings" style="width:100%;height:160px;object-fit:cover;border-radius:16px 16px 0 0;">
-          <h3>Local Listings: The Secret to Local SEO</h3>
-          <p>Learn why being on JustDial, Sulekha, and other directories is crucial for local search and how it impacts your business growth.</p>
-          <a href="blogs/local-listings.html" class="blog-link">Read More</a>
-        </div>
-        <div class="blog-card">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="360 Virtual Tours" style="width:100%;height:160px;object-fit:cover;border-radius:16px 16px 0 0;">
-          <h3>360° Virtual Tours: Engage & Convert</h3>
-          <p>See how immersive virtual tours can set you apart from competitors and increase customer engagement.</p>
-          <a href="blogs/virtual-tours.html" class="blog-link">Read More</a>
+  </nav>
+  
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="animate-on-scroll">Boost Your Local Visibility</h1>
+            <p class="subtitle animate-on-scroll">Get discovered by more customers in your area</p>
+            <p class="lead animate-on-scroll">Claim your spot on Google Maps, JustDial, Sulekha & more. Attract more customers with a professional profile and virtual tours.</p>
+            <div class="mt-4 animate-on-scroll">
+              <a href="contact.html" class="btn btn-primary btn-lg me-3">Contact Us</a>
+              <a href="#services" class="btn btn-outline-primary btn-lg">Learn More</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Business growth through local visibility" class="img-fluid rounded-3 shadow animate-on-scroll" loading="lazy">
+          </div>
         </div>
       </div>
-      <a href="blogs/" class="btn blog-btn">Explore All Blogs</a>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section id="testimonials" class="testimonials section">
-    <div class="container">
-      <h2>What Our Clients Say</h2>
-      <div class="testimonial-carousel-container">
-        <div class="testimonial-carousel" id="testimonial-carousel">
-          <!-- Each testimonial-card has avatar and text inside the card, not outside -->
-          <div class="testimonial-card">
-            <div class="testimonial-quote">“My GMB ranking improved dramatically and I saw more walk-ins within 2 weeks!”</div>
-            <div class="testimonial-user">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" class="testimonial-avatar" alt="Ramesh">
-              <div>
-                <div class="testimonial-name">Ramesh</div>
-                <div class="testimonial-role">Cafe Owner</div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section id="pricing" class="py-5 bg-light text-center">
+      <div class="container">
+        <h2 class="mb-4 animate-on-scroll">Ready to Get More Business?</h2>
+        <p class="lead mb-4 animate-on-scroll">
+          We are loved by 100+ local businesses, stores, early-stage startups, marketing agencies, real estate agents, freelancers, and many more.
+        </p>
+        <div class="row justify-content-center mb-4">
+          <div class="col-md-8">
+            <ul class="list-unstyled d-flex justify-content-center gap-4 flex-wrap animate-on-scroll">
+              <li><i class="fas fa-check-circle text-success"></i> No coding skill required</li>
+              <li><i class="fas fa-check-circle text-success"></i> Start in under 2 minutes</li>
+            </ul>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center gap-3 animate-on-scroll">
+          <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
+          <a href="pricing.html" class="btn btn-outline-primary btn-lg">View Pricing</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5 animate-on-scroll">Our Services</h2>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="card service-card h-100 animate-on-scroll">
+              <div class="card-body">
+                <div class="service-icon-wrap">
+                  <i class="fas fa-search-location service-icon"></i>
+                </div>
+                <h3 class="h5">GMB Optimization</h3>
+                <p>Ensure your business appears correctly and prominently on Google Maps. We optimize your profile for keywords, categories, and local relevance.</p>
               </div>
             </div>
           </div>
-          <div class="testimonial-card">
-            <div class="testimonial-quote">“Customers love our virtual tour—it has doubled our enquiries.”</div>
-            <div class="testimonial-user">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" class="testimonial-avatar" alt="Priya">
-              <div>
-                <div class="testimonial-name">Priya</div>
-                <div class="testimonial-role">Salon Manager</div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card service-card h-100 animate-on-scroll">
+              <div class="card-body">
+                <div class="service-icon-wrap">
+                  <i class="fas fa-tools service-icon"></i>
+                </div>
+                <h3 class="h5">Google Maps Profile Fix</h3>
+                <p>Update incorrect addresses, photos, and business hours to avoid losing customers. We handle duplicate listings and resolve suspensions.</p>
               </div>
             </div>
           </div>
-          <div class="testimonial-card">
-            <div class="testimonial-quote">“The team handled everything, from fixing our address to getting us on Sulekha. Highly recommended!”</div>
-            <div class="testimonial-user">
-              <img src="https://randomuser.me/api/portraits/men/45.jpg" class="testimonial-avatar" alt="Anil">
-              <div>
-                <div class="testimonial-name">Anil</div>
-                <div class="testimonial-role">Retail Store</div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card service-card h-100 animate-on-scroll">
+              <div class="card-body">
+                <div class="service-icon-wrap">
+                  <i class="fas fa-address-book service-icon"></i>
+                </div>
+                <h3 class="h5">Local Listings</h3>
+                <p>Get listed on JustDial, Sulekha, and other local directories for more visibility. We ensure consistency across platforms.</p>
               </div>
             </div>
           </div>
-          <div class="testimonial-card">
-            <div class="testimonial-quote">“Our JustDial listing started showing up on top. The monthly reports are super helpful.”</div>
-            <div class="testimonial-user">
-              <img src="https://randomuser.me/api/portraits/men/36.jpg" class="testimonial-avatar" alt="Suresh">
-              <div>
-                <div class="testimonial-name">Suresh</div>
-                <div class="testimonial-role">Electronics Shop</div>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-quote">“Very professional and quick service. Our Apple Maps profile was live in 2 days.”</div>
-            <div class="testimonial-user">
-              <img src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonial-avatar" alt="Meena">
-              <div>
-                <div class="testimonial-name">Meena</div>
-                <div class="testimonial-role">Boutique Owner</div>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-quote">“We got more calls after the WhatsApp setup and GMB optimization. Highly recommend Get On Maps!”</div>
-            <div class="testimonial-user">
-              <img src="https://randomuser.me/api/portraits/men/21.jpg" class="testimonial-avatar" alt="Vikram">
-              <div>
-                <div class="testimonial-name">Vikram</div>
-                <div class="testimonial-role">Freelancer</div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card service-card h-100 animate-on-scroll">
+              <div class="card-body">
+                <div class="service-icon-wrap">
+                  <i class="fas fa-camera-retro service-icon"></i>
+                </div>
+                <h3 class="h5">360° Virtual Tours</h3>
+                <p>Showcase your space with immersive photography that attracts more walk-ins. Google Street View integration available.</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="testimonial-carousel-controls">
-          <button class="testimonial-carousel-btn" id="testimonial-prev" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
-          <button class="testimonial-carousel-btn" id="testimonial-next" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+        <div class="text-center mt-5 animate-on-scroll">
+          <a href="services.html" class="btn btn-primary">Show All Services</a>
         </div>
       </div>
-    </div>
-    <script type="module" src="js/main.js"></script>
-    <script type="module" src="js/modules/components.js"></script>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="about section">
+    </section>
+    
+    <!-- How It Works Section -->
+    <section id="process" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5 animate-on-scroll">How It Works</h2>
+        <div class="steps">
+          <div class="step animate-on-scroll">
+            <span>1</span>
+            <h3>Audit & Consultation</h3>
+            <p>We analyze your current online presence, check for inconsistencies, and suggest improvements tailored to your business goals.</p>
+          </div>
+          <div class="step animate-on-scroll">
+            <span>2</span>
+            <h3>Profile Setup & Fix</h3>
+            <p>We set up or correct your Google Maps & local listings, ensuring all details are accurate and verified.</p>
+          </div>
+          <div class="step animate-on-scroll">
+            <span>3</span>
+            <h3>Listing Deployment</h3>
+            <p>Your business gets listed on relevant directories for maximum reach. We monitor for successful publication.</p>
+          </div>
+          <div class="step animate-on-scroll">
+            <span>4</span>
+            <h3>360° Capture</h3>
+            <p>Optional: Add virtual tours to enhance engagement. Our photographers visit your location and upload the tour to your profile.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5 animate-on-scroll">Why Choose Us?</h2>
+        <ul class="benefits-list">
+          <li class="animate-on-scroll">
+            <span class="benefit-icon"><i class="fas fa-arrow-up"></i></span>
+            <span>Increased search visibility</span>
+          </li>
+          <li class="animate-on-scroll">
+            <span class="benefit-icon"><i class="fas fa-check-circle"></i></span>
+            <span>Accurate business info everywhere</span>
+          </li>
+          <li class="animate-on-scroll">
+            <span class="benefit-icon"><i class="fas fa-users"></i></span>
+            <span>Attract more local customers</span>
+          </li>
+          <li class="animate-on-scroll">
+            <span class="benefit-icon"><i class="fas fa-cogs"></i></span>
+            <span>Hassle-free setup & maintenance</span>
+          </li>
+          <li class="animate-on-scroll">
+            <span class="benefit-icon"><i class="fas fa-headset"></i></span>
+            <span>Dedicated support team</span>
+          </li>
+          <li class="animate-on-scroll">
+            <span class="benefit-icon"><i class="fas fa-chart-line"></i></span>
+            <span>Monthly performance reports (Premium)</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Resources/Blog Section -->
+    <section id="resources" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5 animate-on-scroll">Resources & Blog</h2>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="card blog-card h-100 animate-on-scroll">
+              <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Why Google Maps Matters" loading="lazy">
+              <div class="card-body">
+                <h3 class="h5">Why Your Business Needs Google Maps</h3>
+                <p>Discover how a Google Maps listing can drive real customers to your doorstep and boost your local reputation.</p>
+                <a href="blogs/why-google-maps.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card blog-card h-100 animate-on-scroll">
+              <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Local Listings" loading="lazy">
+              <div class="card-body">
+                <h3 class="h5">Local Listings: The Secret to Local SEO</h3>
+                <p>Learn why being on JustDial, Sulekha, and other directories is crucial for local search and how it impacts your business growth.</p>
+                <a href="blogs/local-listings.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card blog-card h-100 animate-on-scroll">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="360 Virtual Tours" loading="lazy">
+              <div class="card-body">
+                <h3 class="h5">360° Virtual Tours: Engage & Convert</h3>
+                <p>See how immersive virtual tours can set you apart from competitors and increase customer engagement.</p>
+                <a href="blogs/virtual-tours.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5 animate-on-scroll">
+          <a href="blogs/index.html" class="btn btn-primary">Explore All Blogs</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonial-ticker py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">What Our Clients Say</h2>
+        <div class="testimonial-carousel-container">
+          <div class="testimonial-carousel">
+            <div class="testimonial-card">
+              <div class="testimonial-quote">"My GMB ranking improved dramatically and I saw more walk-ins within 2 weeks!"</div>
+              <div class="testimonial-user">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="testimonial-avatar" alt="Ramesh">
+                <div>
+                  <div class="testimonial-name">Ramesh</div>
+                  <div class="testimonial-role">Cafe Owner</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-quote">"Customers love our virtual tour—it has doubled our enquiries."</div>
+              <div class="testimonial-user">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="testimonial-avatar" alt="Priya">
+                <div>
+                  <div class="testimonial-name">Priya</div>
+                  <div class="testimonial-role">Salon Manager</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-quote">"The team handled everything, from fixing our address to getting us on Sulekha. Highly recommended!"</div>
+              <div class="testimonial-user">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" class="testimonial-avatar" alt="Anil">
+                <div>
+                  <div class="testimonial-name">Anil</div>
+                  <div class="testimonial-role">Retail Store</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-quote">"Our JustDial listing started showing up on top. The monthly reports are super helpful."</div>
+              <div class="testimonial-user">
+                <img src="https://randomuser.me/api/portraits/men/36.jpg" class="testimonial-avatar" alt="Suresh">
+                <div>
+                  <div class="testimonial-name">Suresh</div>
+                  <div class="testimonial-role">Electronics Shop</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-quote">"Very professional and quick service. Our Apple Maps profile was live in 2 days."</div>
+              <div class="testimonial-user">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonial-avatar" alt="Meena">
+                <div>
+                  <div class="testimonial-name">Meena</div>
+                  <div class="testimonial-role">Boutique Owner</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-quote">"We got more calls after the WhatsApp setup and GMB optimization. Highly recommend Get On Maps!"</div>
+              <div class="testimonial-user">
+                <img src="https://randomuser.me/api/portraits/men/21.jpg" class="testimonial-avatar" alt="Vikram">
+                <div>
+                  <div class="testimonial-name">Vikram</div>
+                  <div class="testimonial-role">Freelancer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5 animate-on-scroll">About Us</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <p class="lead animate-on-scroll">We help local businesses claim their online real estate, get discovered on maps, and attract customers through accurate listings and engaging visuals.</p>
+            <p class="animate-on-scroll">Our team consists of digital marketing experts, certified photographers, and local SEO specialists with over 8 years of experience. We have helped 500+ businesses across India improve their online presence and grow their customer base.</p>
+            <div class="row mt-4">
+              <div class="col-md-4 animate-on-scroll">
+                <i class="fas fa-award fa-2x text-primary mb-3"></i>
+                <p>Google Street View Trusted Photographers</p>
+              </div>
+              <div class="col-md-4 animate-on-scroll">
+                <i class="fas fa-user-shield fa-2x text-primary mb-3"></i>
+                <p>Verified GMB Partners</p>
+              </div>
+              <div class="col-md-4 animate-on-scroll">
+                <i class="fas fa-globe-asia fa-2x text-primary mb-3"></i>
+                <p>Serving all major Indian cities</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5 animate-on-scroll">Frequently Asked Questions</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="faq animate-on-scroll">
+              <details>
+                <summary>How long does it take to update GMB info?</summary>
+                <p>Usually within 3-5 business days, depending on Google verification. Some changes may require postcard verification.</p>
+              </details>
+              <details>
+                <summary>Can you list on other platforms?</summary>
+                <p>Yes, we also list on JustDial, Sulekha, and others. We ensure your business info is consistent everywhere.</p>
+              </details>
+              <details>
+                <summary>What do I need to provide?</summary>
+                <p>Basic business details, address proof, and photos. For virtual tours, we schedule a photoshoot at your location.</p>
+              </details>
+              <details>
+                <summary>Is there ongoing support?</summary>
+                <p>Yes, all packages include support for 30 days. Premium clients get extended support and monthly reports.</p>
+              </details>
+              <details>
+                <summary>What if my business already has a Google Maps listing?</summary>
+                <p>No problem! We can claim, verify, and optimize your existing listing. We'll audit it first and fix any issues like incorrect information, poor photos, or missing details.</p>
+              </details>
+              <details>
+                <summary>Will this help me rank higher on Google search?</summary>
+                <p>Yes! An optimized Google Maps listing significantly improves your local SEO. When people search for businesses like yours in your area, you'll have a much better chance of appearing in the "Local Pack" (top 3 map results).</p>
+              </details>
+              <details>
+                <summary>What areas do you serve?</summary>
+                <p>We serve all major cities across India including Mumbai, Delhi NCR, Bangalore, Chennai, Hyderabad, Pune, Kolkata, and more. For 360° photography, availability may vary by location.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
     <div class="container">
-      <h2>About Us</h2>
-      <p>We help local businesses claim their online real estate, get discovered on maps, and attract customers through accurate listings and engaging visuals.</p>
-      <p>Our team consists of digital marketing experts, certified photographers, and local SEO specialists with over 8 years of experience. We have helped 500+ businesses across India improve their online presence and grow their customer base.</p>
-      <ul>
-        <li><i class="fas fa-award"></i> Google Street View Trusted Photographers</li>
-        <li><i class="fas fa-user-shield"></i> Verified GMB Partners</li>
-        <li><i class="fas fa-globe-asia"></i> Serving all major Indian cities</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="faq section">
-    <div class="container">
-      <h2>FAQs</h2>
-      <details>
-        <summary>How long does it take to update GMB info?</summary>
-        <p>Usually within 3-5 business days, depending on Google verification. Some changes may require postcard verification.</p>
-      </details>
-      <details>
-        <summary>Can you list on other platforms?</summary>
-        <p>Yes, we also list on JustDial, Sulekha, and others. We ensure your business info is consistent everywhere.</p>
-      </details>
-      <details>
-        <summary>What do I need to provide?</summary>
-        <p>Basic business details, address proof, and photos. For virtual tours, we schedule a photoshoot at your location.</p>
-      </details>
-      <details>
-        <summary>Is there ongoing support?</summary>
-        <p>Yes, all packages include support for 30 days. Premium clients get extended support and monthly reports.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- Contact CTA -->
-  <section id="contact-cta" class="cta-section section">
-    <div class="container">
-      <h2>Ready to Get Started?</h2>
-      <p>Let us help you boost your local presence and attract more customers.</p>
-      <div class="cta-buttons">
-        <a href="contact.html" class="btn cta-btn">Contact Us</a>
-        <a href="pricing.html" class="btn cta-outline">View Pricing</a>
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <div class="footer-brand">
+            <i class="fas fa-map-marked-alt"></i> Get On Maps
+          </div>
+          <p>Helping local businesses grow with digital maps & listings.</p>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blogs/index.html">Blog</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <h5>Contact Info</h5>
+          <ul class="footer-links">
+            <li><i class="fas fa-envelope"></i> <a href="mailto:info@getonmaps.com">info@getonmaps.com</a></li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91-98765-43210</a></li>
+            <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/getonmaps" target="_blank">@getonmaps</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Get On Maps. All rights reserved.</p>
       </div>
     </div>
-  </section>
-
-  <div id="footer"></div>
+  </footer>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/app.js"></script>
 </body>
 </html>

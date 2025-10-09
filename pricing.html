@@ -1,619 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pricing Details | Get On Maps</title>
-  <meta name="description" content="Detailed pricing and package comparison for Get On Maps services." />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #2c89e8;
-      --primary-dark: #1a5fa3;
-      --bg: #f8fafc;
-      --card-bg: #fff;
-      --text: #222;
-      --muted: #888;
-      --border: #e5e7eb;
-      --shadow: 0 2px 16px rgba(44,137,232,0.08);
-      --shadow-hover: 0 4px 32px rgba(44,137,232,0.16);
-      --section-bg: #f5f8fa;
-      --link-color: #2c89e8;
-      --heading-color: #222;
-      --footer-bg: #fff;
-      --nav-bg: #fff;
-    }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-      transition: background 0.2s, color 0.2s;
-    }
-    .dark-theme {
-      --primary: #60a5fa;
-      --primary-dark: #2563eb;
-      --bg: #181a20;
-      --card-bg: #23262f;
-      --text: #f3f4f6;
-      --muted: #a1a1aa;
-      --border: #2a2d34;
-      --shadow: 0 2px 16px rgba(44,137,232,0.18);
-      --shadow-hover: 0 4px 32px rgba(44,137,232,0.28);
-      --section-bg: #1f2937;
-      --link-color: #60a5fa;
-      --heading-color: #f3f4f6;
-      --footer-bg: #23262f;
-      --nav-bg: #23262f;
-    }
-    .theme-toggle {
-      position: fixed;
-      top: 1.2rem;
-      right: 1.5rem;
-      z-index: 1000;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 2rem;
-      padding: 0.3rem 1rem;
-      font-size: 1.1rem;
-      color: var(--primary);
-      cursor: pointer;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: background 0.2s, color 0.2s;
-    }
-    .container {
-      max-width: 1400px; /* Increased from 1100px */
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    .pricing-cards {
-      display: flex;
-      flex-wrap: wrap; /* Changed from nowrap */
-      gap: 1.5rem;
-      justify-content: center;
-      margin: 3rem 0;
-      padding: 0;
-      overflow-x: visible; /* Changed from auto */
-    }
-    .pricing-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 1.2rem;
-      box-shadow: var(--shadow);
-      padding: 2.2rem 1.5rem 2rem 1.5rem;
-      flex: 1;
-      min-width: 280px;
-      max-width: 320px; /* Added max-width */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: box-shadow 0.2s, background 0.2s, border 0.2s;
-    }
-    .pricing-card:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: var(--primary);
-    }
-    .pricing-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-      color: var(--primary);
-      text-align: center;
-      letter-spacing: 0.01em;
-    }
-    .pricing-price {
-      font-size: 1.7rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .pricing-price .old-price {
-      text-decoration: line-through;
-      color: var(--muted);
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-    .pricing-desc {
-      font-size: 0.98rem;
-      margin-bottom: 1rem;
-      color: var(--muted);
-      text-align: center;
-      font-weight: 500;
-    }
-    .pricing-features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 1.5rem 0;
-      font-size: 0.97rem;
-      color: var(--text);
-      text-align: left;
-      width: 100%;
-    }
-    .pricing-features li {
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-    .pricing-features li i {
-      color: var(--primary);
-      margin-top: 2px;
-      min-width: 18px;
-    }
-    .pricing-card .btn {
-      margin-top: auto;
-      width: 100%;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 0.7rem;
-      padding: 0.7rem 0;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      transition: background 0.2s;
-      box-shadow: none;
-    }
-    .pricing-card .btn:hover {
-      background: var(--primary-dark);
-    }
-    .pricing-table, .addons-table {
-      width: 100%;
-      max-width: 900px;
-      margin: 2rem auto;
-      border-collapse: collapse;
-      font-size: 1rem;
-      background: var(--card-bg);
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-    .pricing-table th, .pricing-table td,
-    .addons-table th, .addons-table td {
-      padding: 0.8rem 1rem;
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-    }
-    .pricing-table th, .addons-table th {
-      background: var(--section-bg);
-      color: var(--primary);
-      font-weight: 700;
-    }
-    .dark-theme .pricing-table th, .dark-theme .addons-table th {
-      background: #23262f;
-    }
-    .pricing-table tr:last-child td,
-    .addons-table tr:last-child td {
-      border-bottom: none;
-    }
-    .addons-table td:first-child, .addons-table th:first-child {
-      text-align: left;
-    }
-    .contact-info-section {
-      margin: 3rem auto 2rem auto;
-      max-width: 600px;
-      background: var(--card-bg);
-      border-radius: 1rem;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-    .contact-info-section h3 {
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-    .contact-info-section p {
-      margin-bottom: 0.5rem;
-      color: var(--text);
-    }
-    .try-free-section {
-      margin: 2rem auto 3rem auto;
-      text-align: center;
-      background: var(--card-bg);
-      border-radius: 1rem;
-      max-width: 600px;
-      box-shadow: var(--shadow);
-      padding: 2rem 1rem 1.5rem 1rem;
-      border: 1px solid var(--border);
-    }
-    .try-free-section .btn {
-      background: var(--primary);
-      color: #fff;
-      font-size: 1.2rem;
-      padding: 1rem 2.5rem;
-      border-radius: 2rem;
-      border: none;
-      font-weight: 700;
-      margin-top: 1rem;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.2s;
-    }
-    .try-free-section .btn:hover {
-      background: var(--primary-dark);
-    }
-    /* Add custom plan section styles */
-    .custom-plan {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 2.5rem;
-      text-align: center;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 1.2rem;
-      box-shadow: var(--shadow);
-    }
-    
-    .custom-plan h2 {
-      color: var(--primary);
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-    
-    .custom-plan p {
-      color: var(--text);
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-    @media (max-width: 1400px) {
-      .container {
-        padding: 0 1rem;
-      }
-    }
-    @media (max-width: 1100px) {
-      .pricing-card {
-        min-width: 260px;
-        max-width: 300px;
-      }
-    }
-    @media (max-width: 900px) {
-      .pricing-card {
-        min-width: unset;
-        max-width: 100%;
-        width: 100%;
-      }
-    }
-  </style>
-  <script>
-    // Dark theme toggle logic
-    document.addEventListener('DOMContentLoaded', function() {
-      const toggleBtn = document.getElementById('theme-toggle');
-      const html = document.documentElement;
-      const icon = toggleBtn.querySelector('i');
-      const text = toggleBtn.querySelector('span');
-      
-      function updateTheme(isDark) {
-        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-        text.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-        html.classList.toggle('dark-theme', isDark);
-      }
-
-      // Persist theme
-      if (localStorage.getItem('theme') === 'dark') {
-        updateTheme(true);
-      }
-
-      toggleBtn.addEventListener('click', function() {
-        const isDark = !html.classList.contains('dark-theme');
-        updateTheme(isDark);
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
-    });
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Affordable pricing plans for Google Maps listing, JustDial, Sulekha, and 360° virtual tours. Choose the right package for your business.">
+  <title>Pricing - Get On Maps</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-    <i class="fas fa-moon"></i> <span>Dark Mode</span>
-  </button>
-  <nav class="main-header">
-    <div class="container header-flex">
-      <a href="index.html#hero" class="brand"><i class="fas fa-map-marked-alt"></i> Get On Maps</a>
-      <div class="nav-links">
-        <a href="pricing.html">Pricing</a>
-        <a href="services.html">Services</a>
-        <a href="index.html#blogs">Blogs</a>
-        <a href="index.html#about">About</a>
-        <a href="contact.html">Contact</a>
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-map-marked-alt"></i> Get On Maps
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="pricing.html">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blogs/index.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="ms-lg-3 d-flex align-items-center gap-2">
+          <button class="theme-toggle" aria-label="Toggle dark/light theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="https://www.instagram.com/getonmaps" target="_blank" class="btn btn-sm btn-outline-primary" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
       </div>
-      <a href="https://www.instagram.com/getonmaps" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     </div>
   </nav>
-
-  <header class="hero" id="hero">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Pricing Details</h1>
-        <h2 class="subtitle">Choose the right package for your business</h2>
-        <a href="index.html#pricing" class="btn cta-btn">Back to Main Site</a>
-      </div>
-      <div class="hero-banner">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Pricing Banner" class="banner-img" />
-      </div>
-    </div>
-  </header>
-
-  <main class="container" style="max-width: 1100px;">
-    <!-- Pricing Cards (horizontal row) -->
-    <section class="pricing-cards">
-      <!-- Quick Setup/Basic -->
-      <div class="pricing-card">
-        <div class="pricing-title">Quick Setup/Basic</div>
-        <div class="pricing-price">
-          <span class="old-price">₹999</span>
-          ₹499
-        </div>
-        <div class="pricing-desc">Perfect for testing the waters</div>
-        <ul class="pricing-features">
-          <li><i class="fas fa-check-circle"></i> GMB Setup (name, address, phone, category)</li>
-          <li><i class="fas fa-check-circle"></i> Mobile photos</li>
-        </ul>
-        <a href="contact.html" class="btn">Get Started</a>
-      </div>
-      <!-- Basic Plus -->
-      <div class="pricing-card">
-        <div class="pricing-title">Basic Plus</div>
-        <div class="pricing-price">
-          <span class="old-price">₹1599</span>
-          ₹1099
-        </div>
-        <div class="pricing-desc">All in Basic, plus more</div>
-        <ul class="pricing-features">
-          <li><i class="fas fa-check-circle"></i> 2x 360° photo as per requirement (₹250/pic included)</li>
-          <li><i class="fas fa-check-circle"></i> Optimised GMB Setup with offers/services listing</li>
-          <li><i class="fas fa-check-circle"></i> Apple Maps profile</li>
-        </ul>
-        <a href="contact.html" class="btn">Get Started</a>
-      </div>
-      <!-- Pro -->
-      <div class="pricing-card">
-        <div class="pricing-title">Pro</div>
-        <div class="pricing-price">
-          <span class="old-price">₹1999</span>
-          ₹1499
-        </div>
-        <div class="pricing-desc">Complete digital presence in one go</div>
-        <ul class="pricing-features">
-          <li><i class="fas fa-check-circle"></i> Basic <a href="https://www.justdial.com/" target="_blank">Justdial</a> listing</li>
-          <li><i class="fas fa-check-circle"></i> Basic <a href="https://www.sulekha.com/" target="_blank">Sulekha</a> listing</li>
-        </ul>
-        <a href="contact.html" class="btn">Get Started</a>
-      </div>
-      <!-- Pro Max -->
-      <div class="pricing-card">
-        <div class="pricing-title">Pro Max</div>
-        <div class="pricing-price">
-          <span class="old-price">₹2599</span>
-          ₹2099
-        </div>
-        <div class="pricing-desc">For shops wanting premium visibility</div>
-        <ul class="pricing-features">
-          <li><i class="fas fa-check-circle"></i> Premium Justdial listing (₹500 value included)</li>
-          <li><i class="fas fa-check-circle"></i> Premium Sulekha listing (₹300 value included)</li>
-          <li><i class="fas fa-check-circle"></i> GMB management training</li>
-          <li><i class="fas fa-check-circle"></i> Local SEO Ranking help (coming soon)</li>
-          <li><i class="fas fa-check-circle"></i> WhatsApp business setup (bonus)</li>
-        </ul>
-        <a href="contact.html" class="btn">Get Started</a>
+  
+  <!-- Main Content -->
+  <main id="main-content" style="padding-top: 80px;">
+    <!-- Page Header -->
+    <section class="py-5 bg-light">
+      <div class="container text-center">
+        <h1 class="mb-3">Pricing Plans</h1>
+        <p class="lead">Choose the right package for your business</p>
       </div>
     </section>
-
-    <!-- Custom Plan Section -->
-    <section class="custom-plan">
-      <h2>Custom Plan</h2>
-      <p>Get custom package, mix up the services, buy only the required services, and create your perfect solution.</p>
-      <a href="contact.html" class="btn">Contact Us</a>
+    
+    <!-- Pricing Cards -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4 justify-content-center">
+          <!-- Quick Setup/Basic -->
+          <div class="col-lg-3 col-md-6">
+            <div class="card pricing-card h-100">
+              <div class="card-body d-flex flex-column">
+                <h3 class="pricing-title">Quick Setup/Basic</h3>
+                <div class="pricing-price">
+                  <span class="old-price">₹999</span>
+                  <span>₹499</span>
+                </div>
+                <p class="text-muted mb-4">Perfect for testing the waters</p>
+                <ul class="pricing-features flex-grow-1">
+                  <li><i class="fas fa-check-circle"></i> GMB Setup (name, address, phone, category)</li>
+                  <li><i class="fas fa-check-circle"></i> Mobile photos</li>
+                  <li><i class="fas fa-check-circle"></i> 2 weeks support</li>
+                  <li><i class="fas fa-check-circle"></i> 1st month report</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary mt-auto">Get Started</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Basic Plus -->
+          <div class="col-lg-3 col-md-6">
+            <div class="card pricing-card h-100">
+              <div class="card-body d-flex flex-column">
+                <h3 class="pricing-title">Basic Plus</h3>
+                <div class="pricing-price">
+                  <span class="old-price">₹1599</span>
+                  <span>₹1099</span>
+                </div>
+                <p class="text-muted mb-4">All in Basic, plus more</p>
+                <ul class="pricing-features flex-grow-1">
+                  <li><i class="fas fa-check-circle"></i> Everything in Basic</li>
+                  <li><i class="fas fa-check-circle"></i> 2x 360° photo (₹250/pic included)</li>
+                  <li><i class="fas fa-check-circle"></i> Optimised GMB Setup with offers/services</li>
+                  <li><i class="fas fa-check-circle"></i> Apple Maps profile</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary mt-auto">Get Started</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pro -->
+          <div class="col-lg-3 col-md-6">
+            <div class="card pricing-card featured h-100">
+              <div class="card-body d-flex flex-column">
+                <h3 class="pricing-title">Pro</h3>
+                <div class="pricing-price">
+                  <span class="old-price">₹1999</span>
+                  <span>₹1499</span>
+                </div>
+                <p class="text-muted mb-4">Complete digital presence</p>
+                <ul class="pricing-features flex-grow-1">
+                  <li><i class="fas fa-check-circle"></i> Everything in Basic Plus</li>
+                  <li><i class="fas fa-check-circle"></i> Basic <a href="https://www.justdial.com/" target="_blank">JustDial</a> listing</li>
+                  <li><i class="fas fa-check-circle"></i> Basic <a href="https://www.sulekha.com/" target="_blank">Sulekha</a> listing</li>
+                  <li><i class="fas fa-check-circle"></i> Priority support</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary mt-auto">Get Started</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pro Max -->
+          <div class="col-lg-3 col-md-6">
+            <div class="card pricing-card h-100">
+              <div class="card-body d-flex flex-column">
+                <h3 class="pricing-title">Pro Max</h3>
+                <div class="pricing-price">
+                  <span class="old-price">₹2599</span>
+                  <span>₹2099</span>
+                </div>
+                <p class="text-muted mb-4">Premium visibility package</p>
+                <ul class="pricing-features flex-grow-1">
+                  <li><i class="fas fa-check-circle"></i> Everything in Pro</li>
+                  <li><i class="fas fa-check-circle"></i> Premium JustDial listing (₹500 value)</li>
+                  <li><i class="fas fa-check-circle"></i> Premium Sulekha listing (₹300 value)</li>
+                  <li><i class="fas fa-check-circle"></i> GMB management training</li>
+                  <li><i class="fas fa-check-circle"></i> WhatsApp business setup</li>
+                  <li><i class="fas fa-check-circle"></i> Monthly reports</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary mt-auto">Get Started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Custom Plan -->
+        <div class="text-center mt-5 p-5 bg-light rounded-3">
+          <h2 class="mb-3">Need a Custom Plan?</h2>
+          <p class="lead">Get custom package, mix up the services, buy only the required services, and create your perfect solution.</p>
+          <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
+        </div>
+      </div>
     </section>
-
-    <!-- Pricing Table -->
-    <section>
-      <table class="pricing-table">
-        <thead>
-          <tr>
-            <th>Features</th>
-            <th>Quick Setup/Basic<br><span class="old-price">₹999</span> <span style="color:var(--primary);font-weight:700;">₹499</span></th>
-            <th>Basic Plus<br><span class="old-price">₹1599</span> <span style="color:var(--primary);font-weight:700;">₹1099</span></th>
-            <th>Pro<br><span class="old-price">₹1999</span> <span style="color:var(--primary);font-weight:700;">₹1499</span></th>
-            <th>Pro Max<br><span class="old-price">₹2599</span> <span style="color:var(--primary);font-weight:700;">₹2099</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>GMB Setup (name, address, phone, category)</td>
-            <td>✔️</td>
-            <td>✔️</td>
-            <td>✔️</td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Mobile photos</td>
-            <td>✔️</td>
-            <td>✔️</td>
-            <td>✔️</td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>2x 360° photo (₹250/pic included)</td>
-            <td></td>
-            <td>✔️</td>
-            <td>✔️</td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Optimised GMB Setup (offers/services listing)</td>
-            <td></td>
-            <td>✔️</td>
-            <td>✔️</td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Apple Maps profile</td>
-            <td></td>
-            <td>✔️</td>
-            <td>✔️</td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Basic Justdial listing</td>
-            <td></td>
-            <td></td>
-            <td>✔️</td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Basic Sulekha listing</td>
-            <td></td>
-            <td></td>
-            <td>✔️</td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Premium Justdial listing (₹500 value)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Premium Sulekha listing (₹300 value)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>GMB management training</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Local SEO Ranking help (coming soon)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>WhatsApp business setup (bonus)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>2 weeks support, 1st month report</td>
-            <td>✔️</td>
-            <td>✔️</td>
-            <td>✔️</td>
-            <td>✔️</td>
-          </tr>
-        </tbody>
-      </table>
+    
+    <!-- Feature Comparison Table -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5">Feature Comparison</h2>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Features</th>
+                <th class="text-center">Quick Setup<br><small class="text-muted">₹499</small></th>
+                <th class="text-center">Basic Plus<br><small class="text-muted">₹1099</small></th>
+                <th class="text-center">Pro<br><small class="text-muted">₹1499</small></th>
+                <th class="text-center">Pro Max<br><small class="text-muted">₹2099</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GMB Setup</td>
+                <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                <td class="text-center"><i class="fas fa-check text-success"></i></td>
+              </tr>
+              <tr>
+                <td>Mobile Photos</td>
+                <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                <td class="text-center"><i class="fas fa-check text-success"></i></td>
+              </tr>
+              <tr>
+                <td>360° Photos</td>
+                <td class="text-center">-</td>
+                <td class="text-center">2 photos</td>
+                <td class="text-center">2 photos</td>
+                <td class="text-center">2 photos</td>
+              </tr>
+              <tr>
+                <td>Apple Maps</td>
+                <td class="text-center">-</td>
+                <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                <td class="text-center"><i class="fas fa-check text-success"></i></td>
+                <td class="text-center"><i class="fas fa-check text-success"></i></td>
+              </tr>
+              <tr>
+                <td>JustDial Listing</td>
+                <td class="text-center">-</td>
+                <td class="text-center">-</td>
+                <td class="text-center">Basic</td>
+                <td class="text-center">Premium</td>
+              </tr>
+              <tr>
+                <td>Sulekha Listing</td>
+                <td class="text-center">-</td>
+                <td class="text-center">-</td>
+                <td class="text-center">Basic</td>
+                <td class="text-center">Premium</td>
+              </tr>
+              <tr>
+                <td>WhatsApp Business</td>
+                <td class="text-center">-</td>
+                <td class="text-center">-</td>
+                <td class="text-center">-</td>
+                <td class="text-center"><i class="fas fa-check text-success"></i></td>
+              </tr>
+              <tr>
+                <td>Support Duration</td>
+                <td class="text-center">2 weeks</td>
+                <td class="text-center">1 month</td>
+                <td class="text-center">1 month</td>
+                <td class="text-center">3 months</td>
+              </tr>
+              <tr>
+                <td>Monthly Reports</td>
+                <td class="text-center">1st month</td>
+                <td class="text-center">1st month</td>
+                <td class="text-center">1st month</td>
+                <td class="text-center">3 months</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </section>
-
-    <!-- Add-ons Table Section -->
-    <section style="margin:2rem 0;">
-      <h3 style="text-align:center; color:var(--primary); margin-bottom:1rem;">Add-ons On Demand</h3>
-      <table class="addons-table">
-        <thead>
-          <tr>
-            <th>Add-on</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>360° pic</td>
-            <td>₹250/pic</td>
-          </tr>
-          <tr>
-            <td>Offer listing on social media post</td>
-            <td>₹100 per offer post</td>
-          </tr>
-          <tr>
-            <td>Holiday/Celebration Posts</td>
-            <td>₹100 per post</td>
-          </tr>
-          <tr>
-            <td>Offer listing(8) + celebration post(8) bundle</td>
-            <td>16 @ ₹1000</td>
-          </tr>
-          <tr>
-            <td>Personal GMB management training (1-hour session)</td>
-            <td>₹2000</td>
-          </tr>
-          <tr>
-            <td>Review management setup</td>
-            <td>₹1000-₹5000 (based on requirement)</td>
-          </tr>
-          <tr>
-            <td>Whatsapp business setup</td>
-            <td>₹1000</td>
-          </tr>
-          <tr>
-            <td>Monthly Maintenance - Basic</td>
-            <td>₹299/month</td>
-          </tr>
-          <tr>
-            <td>Monthly Maintenance - Premium</td>
-            <td>₹499/month</td>
-          </tr>
-          <tr>
-            <td>Diwali Special Posts (5 festival posts)</td>
-            <td>₹199</td>
-          </tr>
-          <tr>
-            <td>New Year Updates (hours, offers, photos)</td>
-            <td>₹149</td>
-          </tr>
-        </tbody>
-      </table>
+    
+    <!-- Add-ons Section -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Add-ons On Demand</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Add-on Service</th>
+                    <th class="text-center">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>360° Photo</td>
+                    <td class="text-center">₹250/pic</td>
+                  </tr>
+                  <tr>
+                    <td>Offer Listing on Social Media</td>
+                    <td class="text-center">₹100 per post</td>
+                  </tr>
+                  <tr>
+                    <td>Holiday/Celebration Posts</td>
+                    <td class="text-center">₹100 per post</td>
+                  </tr>
+                  <tr>
+                    <td>Offer + Celebration Bundle (16 posts)</td>
+                    <td class="text-center">₹1000</td>
+                  </tr>
+                  <tr>
+                    <td>Personal GMB Management Training</td>
+                    <td class="text-center">₹2000 (1-hour session)</td>
+                  </tr>
+                  <tr>
+                    <td>Review Management Setup</td>
+                    <td class="text-center">₹1000-₹5000</td>
+                  </tr>
+                  <tr>
+                    <td>WhatsApp Business Setup</td>
+                    <td class="text-center">₹1000</td>
+                  </tr>
+                  <tr>
+                    <td>Monthly Maintenance - Basic</td>
+                    <td class="text-center">₹299/month</td>
+                  </tr>
+                  <tr>
+                    <td>Monthly Maintenance - Premium</td>
+                    <td class="text-center">₹499/month</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-
-    <!-- Contact Info Section -->
-    <section class="contact-info-section">
-      <h3>Talk to Us</h3>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:info@getonmaps.com">info@getonmaps.com</a></p>
-      <p><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91-98765-43210</a></p>
-      <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/getonmaps" target="_blank">Instagram</a></p>
-      <a href="contact.html" class="btn" style="margin-top:1rem;">Contact Us</a>
+    
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5">Pricing FAQs</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="faq">
+              <details>
+                <summary>Are there any hidden charges?</summary>
+                <p>No, all our prices are transparent. The only additional costs would be if you choose add-on services or platform-specific premium fees.</p>
+              </details>
+              <details>
+                <summary>Can I upgrade my plan later?</summary>
+                <p>Yes, you can upgrade your plan anytime. You'll only pay the difference between your current plan and the new plan.</p>
+              </details>
+              <details>
+                <summary>What payment methods do you accept?</summary>
+                <p>We accept UPI, bank transfers, credit/debit cards, and digital wallets. For enterprise clients, we also offer invoice-based payments.</p>
+              </details>
+              <details>
+                <summary>Is there a refund policy?</summary>
+                <p>We offer a 7-day money-back guarantee if you're not satisfied with our services. Terms and conditions apply.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-5 text-center">
+      <div class="container">
+        <h2 class="mb-4">Ready to Get Started?</h2>
+        <p class="lead mb-4">Choose your plan and boost your local business visibility today!</p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
+          <a href="tel:+919876543210" class="btn btn-outline-primary btn-lg">
+            <i class="fas fa-phone"></i> Call Now
+          </a>
+        </div>
+      </div>
     </section>
   </main>
-
-  <footer class="main-footer">
-    <div class="container footer-flex">
-      <div class="footer-brand">
-        <span class="footer-logo"><i class="fas fa-map-marked-alt"></i> Get On Maps</span>
-        <p>Helping local businesses grow with digital maps & listings.</p>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <div class="footer-brand">
+            <i class="fas fa-map-marked-alt"></i> Get On Maps
+          </div>
+          <p>Helping local businesses grow with digital maps & listings.</p>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blogs/index.html">Blog</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <h5>Contact Info</h5>
+          <ul class="footer-links">
+            <li><i class="fas fa-envelope"></i> <a href="mailto:info@getonmaps.com">info@getonmaps.com</a></li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91-98765-43210</a></li>
+            <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/getonmaps" target="_blank">@getonmaps</a></li>
+          </ul>
+        </div>
       </div>
-      <nav class="footer-nav">
-        <a href="index.html#hero">Home</a>
-        <a href="index.html#pricing">Pricing</a>
-        <a href="services.html">Services</a>
-        <a href="index.html#blogs">Blogs</a>
-        <a href="index.html#about">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="footer-contact">
-        <p><i class="fas fa-envelope"></i> <a href="mailto:info@getonmaps.com">info@getonmaps.com</a></p>
-        <p><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91-98765-43210</a></p>
-        <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/getonmaps" target="_blank">Instagram</a></p>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Get On Maps. All rights reserved.</p>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Get On Maps. All rights reserved.</p>
     </div>
   </footer>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/app.js"></script>
 </body>
 </html>
